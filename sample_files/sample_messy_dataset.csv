@@ -1,0 +1,129 @@
+Ticket_ID,Region,Category,Priority,Status,Owner,Cost_USD,Units,Satisfaction_Score,Created_Date,Notes
+TCK-1000,North,Software,Medium,in progress,Alex Rivera,91254.4,7.0,2.7,2024-09-03,urgent
+TCK-1001,South,Hardware,High,In Progress,Jordan Lee,-2966.87,11.0,1.2,2035-01-15,urgent
+TCK-1002,North,Hardware,Medium,TBD,Morgan Diaz,2704.33,36.0,2.5,2024-11-20,urgent
+TCK-1003,north,Facilities,Medium,open,,3196.64,14.0,3.2,11/03/2023,-
+TCK-1004,East,-,Low,open,,1655.2,3.0,2.1,,follow up
+TCK-1005,North,Hardware,High,open,Sam Patel,3737.7,28.0,,2024-07-12,urgent
+TCK-1006,East,Service,Low,Open,Morgan Diaz,2999.65,36.0,4.5,12/04/2023,N/A
+TCK-1007,north,Service,Medium,in progress,Alex Rivera,4860.85,7.0,,11/17/2023,N/A
+TCK-1008,North,Facilities,Medium,open,,4399.67,4.0,3.4,2024-10-03,follow up
+TCK-1009,SOUTH,Hardware,Medium,open,Jordan Lee,4648.12,20.0,1.9,,
+TCK-1010,north,Facilities,Medium,N/A,,3553.81,3.0,1.4,04/09/2023,-
+TCK-1011,West ,Hardware,Medium,open,Taylor Kim,2183.7,4.0,2.9,01/13/2023,
+TCK-1012,West ,Software,Medium,In Progress,,2243.5,4.0,1.7,,
+TCK-1013,north,Software,Low,open,Alex Rivera,4927.28,30.0,1.2,09/22/2023,unknown
+TCK-1014,west,Software,high,Open,Taylor Kim,2410.1,,,03/03/2023,-
+TCK-1015,west,Service,high,Closed,Jordan Lee,,14.0,1.4,2024-06-08,unknown
+TCK-1016,west,Service,unknown,TBD,Alex Rivera,1105.11,5.0,1.4,not a date,follow up
+TCK-1017,west,Service,unknown,In Progress,Morgan Diaz,1359.11,10.0,,2024-10-07,urgent
+TCK-1018,North,Hardware,Medium,in progress,Alex Rivera,100033.48,17.0,,12/14/2023,follow up
+TCK-1019,West ,Facilities,high,in progress,Sam Patel,257.05,3.0,4.2,2024-04-22,follow up
+TCK-1020,west,Hardware,high,TBD,Alex Rivera,160484.67,27.0,2.8,2024-12-26,N/A
+TCK-1021,west,Facilities,high,N/A,  Casey Fox,4111.66,13.0,1.7,2024-05-28,N/A
+TCK-1022,North,-,high,Open,Taylor Kim,239.37,21.0,2.3,2024-09-04,N/A
+TCK-1023,north,Software,high,N/A,Jamie Cruz,3333.77,33.0,2.2,2024-07-11,unknown
+TCK-1024,East,hardware,Medium,N/A,Jordan Lee,4176.94,38.0,1.4,08/15/2023,follow up
+TCK-1025,west,Facilities,Medium,N/A,Jamie Cruz,3380.34,1473.0,1.0,2024-10-28,
+TCK-1026,SOUTH,-,unknown,in progress,  Casey Fox,3903.18,34.0,3.9,2024-09-08,unknown
+TCK-1027,west,Service,unknown,In Progress,Taylor Kim,2162.37,11.0,2.1,2024-08-15,N/A
+TCK-1028,East,hardware,high,Open,Taylor Kim,4470.48,25.0,4.8,2024-12-07,
+TCK-1029,West ,hardware,unknown,N/A,Taylor Kim,4290.82,1.0,2.6,,-
+TCK-1030,west,Hardware,High,N/A,Jamie Cruz,3411.75,30.0,,01/13/2023,urgent
+TCK-1031,East,Hardware,Low,open,Jordan Lee,1670.4,25.0,4.8,2024-07-09,follow up
+TCK-1032,South,Software,unknown,in progress,Jordan Lee,4204.18,31.0,3.3,2024-10-07,N/A
+TCK-1033,West ,Service,unknown,TBD,Jordan Lee,2900.19,13.0,,2024-12-27,unknown
+TCK-1034,West ,hardware,Medium,In Progress,Sam Patel,2170.47,1360.0,4.2,07/12/2023,unknown
+TCK-1035,north,hardware,unknown,in progress,Jamie Cruz,3884.48,38.0,3.0,,N/A
+TCK-1036,SOUTH,Facilities,Medium,N/A,,3999.27,18.0,1.4,02/08/2023,follow up
+TCK-1037,South,-,high,Closed,Morgan Diaz,2051.79,24.0,1.5,07/24/2023,unknown
+TCK-1038,North,Software,Low,open,  Casey Fox,4756.84,,2.1,2024-10-25,
+TCK-1039,South,Software,High,Closed,,2789.13,32.0,3.3,2024-01-19,-
+TCK-1040,East,Facilities,Medium,TBD,Jamie Cruz,315.36,20.0,5.0,2024-04-04,N/A
+TCK-1041,north,Software,Medium,in progress,Jordan Lee,2864.72,7.0,2.9,04/09/2023,
+TCK-1042,north,hardware,High,in progress,Taylor Kim,1195.81,30.0,1.3,11/19/2023,follow up
+TCK-1043,South,Facilities,unknown,In Progress,,3973.51,,2.3,2024-08-23,N/A
+TCK-1044,North,Software,high,in progress,,178.03,37.0,3.5,2024-01-25,urgent
+TCK-1045,west,hardware,unknown,Open,,4846.82,21.0,,2024-03-11,urgent
+TCK-1046,SOUTH,-,high,TBD,Alex Rivera,-4331.31,35.0,2.8,09/12/2023,-
+TCK-1047,West ,Hardware,high,Open,Sam Patel,144503.34,11.0,2.1,2024-01-18,urgent
+TCK-1048,South,hardware,Low,TBD,Morgan Diaz,4902.21,25.0,3.3,not a date,-
+TCK-1049,west,Software,unknown,In Progress,Taylor Kim,2473.72,23.0,2.9,not a date,urgent
+TCK-1050,North,hardware,High,in progress,,,10.0,4.9,2024-01-05,
+TCK-1051,South,-,high,TBD,Alex Rivera,2373.98,26.0,2.1,2024-06-28,follow up
+TCK-1052,North,Service,Low,Closed,Jamie Cruz,3746.49,7.0,4.2,2024-12-10,follow up
+TCK-1053,SOUTH,Service,High,TBD,,916.59,16.0,2.8,04/15/2023,N/A
+TCK-1054,north,hardware,unknown,Closed,Morgan Diaz,4938.88,17.0,3.6,2024-05-07,N/A
+TCK-1055,East,Service,Medium,N/A,Taylor Kim,90.08,4.0,3.6,05/25/2023,follow up
+TCK-1056,South,Service,high,open,Taylor Kim,3159.83,20.0,3.1,2024-01-19,N/A
+TCK-1057,North,Software,Medium,TBD,Jamie Cruz,4160.84,31.0,4.2,2024-05-24,
+TCK-1058,North,Facilities,unknown,Closed,Taylor Kim,1359.07,17.0,3.8,2024-11-12,-
+TCK-1059,SOUTH,Service,unknown,In Progress,Sam Patel,2071.06,20.0,3.5,2024-02-04,N/A
+TCK-1060,west,Service,High,In Progress,Morgan Diaz,211.95,16.0,2.8,,-
+TCK-1061,West ,Facilities,Medium,in progress,Taylor Kim,1099.92,4.0,4.2,2024-04-05,unknown
+TCK-1062,North,Service,Medium,in progress,  Casey Fox,,9.0,,2024-03-04,urgent
+TCK-1063,North,-,unknown,Closed,,2654.12,,4.4,2035-01-15,urgent
+TCK-1064,East,-,unknown,in progress,  Casey Fox,3446.18,5.0,3.0,2024-06-20,urgent
+TCK-1065,West ,hardware,high,In Progress,Jordan Lee,540.93,36.0,4.8,2024-04-14,-
+TCK-1066,North,Facilities,unknown,in progress,  Casey Fox,4618.78,6.0,4.8,2024-12-24,urgent
+TCK-1067,SOUTH,Software,High,Closed,  Casey Fox,4347.06,39.0,2.7,2024-02-19,unknown
+TCK-1068,West ,Service,Low,Closed,Alex Rivera,4874.01,1847.0,1.3,2024-12-09,-
+TCK-1069,East,Facilities,High,Open,Sam Patel,161916.76,27.0,2.1,2024-03-12,-
+TCK-1070,west,Facilities,high,in progress,Morgan Diaz,,14.0,1.0,2024-02-12,N/A
+TCK-1071,SOUTH,Facilities,Medium,in progress,  Casey Fox,4729.35,19.0,,2024-01-16,
+TCK-1072,North,Service,Medium,TBD,,2325.78,28.0,,2024-12-21,
+TCK-1073,North,Facilities,High,in progress,Taylor Kim,1254.42,26.0,4.3,04/11/2023,follow up
+TCK-1074,SOUTH,Facilities,unknown,In Progress,  Casey Fox,1219.53,39.0,1.3,03/25/2023,urgent
+TCK-1075,West ,Service,High,N/A,Jordan Lee,3175.36,23.0,3.2,2024-05-15,-
+TCK-1076,West ,Service,High,in progress,Sam Patel,,13.0,3.1,2024-08-17,unknown
+TCK-1077,South,Hardware,Low,Open,Jamie Cruz,835.79,27.0,4.6,01/26/2023,follow up
+TCK-1078,west,Hardware,Low,in progress,Jamie Cruz,1700.14,23.0,,2024-11-23,-
+TCK-1079,South,Software,Medium,Closed,,4153.35,34.0,2.2,2024-11-14,
+TCK-1080,north,-,unknown,TBD,Sam Patel,2563.06,,3.9,2024-10-05,urgent
+TCK-1081,west,Facilities,high,In Progress,Morgan Diaz,3072.45,15.0,1.6,2024-05-26,follow up
+TCK-1082,North,Service,High,TBD,Sam Patel,4016.23,31.0,,2024-09-04,urgent
+TCK-1083,SOUTH,Hardware,Low,open,Alex Rivera,503.98,23.0,2.3,2024-07-02,follow up
+TCK-1084,North,Service,Medium,TBD,Sam Patel,731.12,9.0,1.4,,N/A
+TCK-1085,west,Facilities,unknown,open,Sam Patel,1226.32,,3.3,2024-02-27,follow up
+TCK-1086,West ,hardware,High,N/A,Jamie Cruz,3338.64,5.0,,2024-09-17,
+TCK-1087,West ,-,Medium,TBD,,1756.77,38.0,1.5,2024-06-05,-
+TCK-1088,West ,Facilities,high,Closed,Alex Rivera,3892.14,3.0,4.1,2024-01-11,-
+TCK-1089,South,Facilities,Low,TBD,Jordan Lee,1693.03,26.0,4.3,03/16/2023,unknown
+TCK-1090,South,hardware,High,N/A,  Casey Fox,1504.14,19.0,4.2,07/06/2023,
+TCK-1091,North,Software,High,open,  Casey Fox,421.45,11.0,,10/22/2023,follow up
+TCK-1092,north,Hardware,High,N/A,Sam Patel,3411.36,5.0,2.0,07/11/2023,N/A
+TCK-1093,west,hardware,High,TBD,  Casey Fox,3534.99,32.0,2.2,2024-03-28,N/A
+TCK-1094,north,hardware,High,Closed,  Casey Fox,4264.24,12.0,,02/07/2023,
+TCK-1095,South,-,High,In Progress,,375.45,31.0,4.1,2024-07-27,-
+TCK-1096,north,Software,Low,N/A,Taylor Kim,2959.54,33.0,4.4,2024-01-27,N/A
+TCK-1097,East,Software,Medium,N/A,  Casey Fox,1021.69,20.0,1.1,11/06/2023,
+TCK-1098,west,Facilities,Low,N/A,Morgan Diaz,4745.31,14.0,2.2,2024-07-20,
+TCK-1099,west,Service,high,open,  Casey Fox,3458.64,30.0,1.5,06/28/2023,urgent
+TCK-1100,East,-,Low,open,Sam Patel,1277.2,25.0,2.2,2024-07-08,
+TCK-1101,West ,-,high,Closed,Alex Rivera,495.74,16.0,3.9,2024-06-02,urgent
+TCK-1102,East,Service,unknown,N/A,Jordan Lee,1861.39,13.0,4.9,2024-05-03,unknown
+TCK-1103,West ,hardware,unknown,In Progress,Sam Patel,4697.8,33.0,3.5,01/05/2023,follow up
+TCK-1104,SOUTH,Hardware,Low,Closed,Jordan Lee,1995.13,38.0,3.9,08/23/2023,-
+TCK-1105,west,-,unknown,TBD,Jamie Cruz,3164.84,38.0,,2024-12-02,-
+TCK-1106,north,Facilities,Medium,in progress,  Casey Fox,97053.87,14.0,4.8,2024-10-16,urgent
+TCK-1107,South,Service,Medium,N/A,,4565.01,17.0,4.2,2024-04-08,N/A
+TCK-1108,North,Service,high,N/A,Morgan Diaz,1474.56,26.0,2.1,2035-01-15,unknown
+TCK-1109,North,Hardware,high,Closed,,3496.05,38.0,,09/08/2023,unknown
+TCK-1110,North,Hardware,unknown,open,Alex Rivera,4890.66,31.0,1.7,2024-04-25,
+TCK-1111,South,Service,high,N/A,,4986.0,19.0,2.1,2024-01-10,
+TCK-1112,East,-,high,TBD,Jamie Cruz,1686.89,1190.0,1.7,2024-05-19,follow up
+TCK-1113,North,Service,Low,N/A,Taylor Kim,,25.0,2.6,05/19/2023,unknown
+TCK-1114,north,hardware,Medium,In Progress,  Casey Fox,4619.37,8.0,3.2,2024-05-12,-
+TCK-1115,North,Facilities,High,Open,Taylor Kim,4136.74,39.0,3.1,08/17/2023,
+TCK-1116,East,Hardware,unknown,In Progress,Morgan Diaz,3417.46,33.0,4.0,2024-01-15,unknown
+TCK-1117,West ,Software,high,Closed,Jamie Cruz,411.5,35.0,1.3,2024-02-16,-
+TCK-1118,north,Hardware,High,Closed,,4379.04,8.0,4.3,09/05/2023,follow up
+TCK-1119,North,Facilities,High,In Progress,Alex Rivera,2330.1,,3.2,2024-07-20,
+TCK-1044,North,Software,high,in progress,,178.03,37.0,3.5,2024-01-25,urgent
+TCK-1047,West ,Hardware,high,Open,Sam Patel,144503.34,11.0,2.1,2024-01-18,urgent
+TCK-1004,East,-,Low,open,,1655.2,3.0,2.1,,follow up
+TCK-1055,East,Service,Medium,N/A,Taylor Kim,90.08,4.0,3.6,05/25/2023,follow up
+TCK-1026,SOUTH,-,unknown,in progress,  Casey Fox,3903.18,34.0,3.9,2024-09-08,unknown
+TCK-1064,East,-,unknown,in progress,  Casey Fox,3446.18,5.0,3.0,2024-06-20,urgent
+TCK-1073,North,Facilities,High,in progress,Taylor Kim,1254.42,26.0,4.3,04/11/2023,follow up
+TCK-1010,north,Facilities,Medium,N/A,,3553.81,3.0,1.4,04/09/2023,-

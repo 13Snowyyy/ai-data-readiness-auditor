@@ -1,0 +1,9 @@
+# AI Data Readiness Auditor - dependencies
+# Lower-bound pins keep installs reproducible while staying portable
+# across Python 3.9-3.14. Optional LLM Enhanced Mode uses only the Python
+# standard library (urllib), so no extra packages are required for it.
+streamlit>=1.36
+pandas>=2.1
+numpy>=1.26
+openpyxl>=3.1
+plotly>=5.22

@@ -1,5 +1,6 @@
 # AI Data Readiness Auditor
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://ai-data-readiness-auditor.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![pandas](https://img.shields.io/badge/pandas-Data-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
@@ -20,6 +21,11 @@ without needing an API key or internet connection.
 ---
 
 ## Quick Start
+
+**🚀 Live demo:** **<https://ai-data-readiness-auditor.streamlit.app/>** — try it
+in your browser, no install required.
+
+To run it locally:
 
 ```bash
 # 1. Clone

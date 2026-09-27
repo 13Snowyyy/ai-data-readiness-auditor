@@ -14,7 +14,7 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 # App metadata
 # ---------------------------------------------------------------------------
-APP_NAME = "AI Data Readiness Auditor"
+APP_NAME = "DataLens"
 APP_TAGLINE = "Clean the data before trusting the dashboard."
 APP_VERSION = "1.0.0"
 

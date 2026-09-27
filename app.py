@@ -21,9 +21,8 @@ from src.validators import load_dataframe, validate_column_names, validate_dataf
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title=config.APP_NAME,
-    page_icon="🧹",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 config.ensure_folders()
@@ -42,68 +41,27 @@ for key, default in {
     st.session_state.setdefault(key, default)
 
 
-# ---------------------------------------------------------------------------
-# Sidebar: mode + metadata inputs
-# ---------------------------------------------------------------------------
 def render_sidebar() -> dict:
-    st.sidebar.title(config.APP_NAME)
-    st.sidebar.caption(config.APP_TAGLINE)
-    st.sidebar.divider()
-
-    st.sidebar.subheader("Generation Mode")
-    mode = st.sidebar.radio(
-        "Choose how narratives are generated:",
-        [config.MODE_TEMPLATE, config.MODE_LLM],
-        index=0,
-        help="Template Engine Mode works fully offline with no API key.",
-    )
-
-    if mode == config.MODE_LLM and not config.llm_mode_available():
-        st.sidebar.warning(
-            "LLM Enhanced Mode is not configured. The app will use "
-            "Template Engine Mode instead."
-        )
-        active_mode = config.MODE_TEMPLATE
-    else:
-        active_mode = mode
-    st.sidebar.info(f"Active mode: **{active_mode}**")
-
-    if active_mode == config.MODE_LLM:
-        provider = config.get_active_provider() or "unknown"
-        model = config.get_model(provider) or "(default)"
-        st.sidebar.caption(f"Provider: `{provider}` · Model: `{model}`")
-        st.sidebar.caption(
-            "Keys are read from environment variables only and are never stored."
-        )
-
-    st.sidebar.divider()
-    st.sidebar.subheader("Audit Configuration")
     inputs = {
-        "dataset_name": st.sidebar.text_input("Dataset name"),
-        "dataset_owner": st.sidebar.text_input("Dataset owner"),
-        "business_question": st.sidebar.text_area("Business question", height=70),
-        "intended_audience": st.sidebar.text_input("Intended audience"),
-        "intended_use": st.sidebar.selectbox(
-            "Intended use",
-            ["", "Dashboard", "Report", "Analysis", "AI/LLM input",
-             "Executive summary", "Operational tracker", "Other"],
-        ),
-        "expected_key_columns": st.sidebar.text_input(
-            "Expected key columns (comma-separated)"
-        ),
-        "expected_date_column": st.sidebar.text_input("Expected date column"),
-        "expected_owner_column": st.sidebar.text_input("Expected owner column"),
-        "expected_status_column": st.sidebar.text_input("Expected status column"),
-        "notes": st.sidebar.text_area("Notes", height=70),
+        "dataset_name": "",
+        "dataset_owner": "",
+        "business_question": "",
+        "intended_audience": "",
+        "intended_use": "",
+        "expected_key_columns": "",
+        "expected_date_column": "",
+        "expected_owner_column": "",
+        "expected_status_column": "",
+        "notes": "",
+        "_active_mode": config.MODE_TEMPLATE,
     }
-    inputs["_active_mode"] = active_mode
     return inputs
 
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-def score_card(label: str, score: float, status: str, color: str, emoji: str) -> None:
+def score_card(label: str, score: float, status: str, color: str) -> None:
     st.markdown(
         f"""
         <div style="border:1px solid #e0e0e0;border-radius:12px;padding:16px;
@@ -112,7 +70,7 @@ def score_card(label: str, score: float, status: str, color: str, emoji: str) ->
             <div style="font-size:2.4rem;font-weight:700;color:{color};">
                 {score}<span style="font-size:1rem;color:#999;">/100</span>
             </div>
-            <div style="font-size:1rem;font-weight:600;color:{color};">{emoji} {status}</div>
+            <div style="font-size:1rem;font-weight:600;color:{color};">{status}</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -131,16 +89,16 @@ def render_score_warnings(quality: dict, dashboard: dict) -> None:
     """Show the required decision-safety warnings based on the scores."""
     if quality["score"] < 50:
         st.error(
-            "⚠️ Do not rely on this dataset for decision-making until the "
+            "Do not rely on this dataset for decision-making until the "
             "critical data quality issues are resolved."
         )
     if dashboard["score"] < 50:
         st.error(
-            "⚠️ Do not build a dashboard from this dataset yet. Clean and "
+            "Do not build a dashboard from this dataset yet. Clean and "
             "standardize the data first."
         )
     if quality["score"] >= 80 and dashboard["score"] >= 80:
-        st.success("✅ This dataset looks trustworthy and dashboard-ready.")
+        st.success("This dataset looks trustworthy and dashboard-ready.")
 
 
 def run_full_audit(df: pd.DataFrame, inputs: dict) -> tuple[bool, str]:
@@ -227,7 +185,7 @@ def tab_upload(inputs: dict) -> None:
 
     st.divider()
     st.write("When ready, run the full data readiness audit below.")
-    if st.button("▶ Run Data Readiness Audit", type="primary", use_container_width=True):
+    if st.button("Run Data Readiness Audit", type="primary", use_container_width=True):
         with st.spinner("Auditing dataset..."):
             ok, error = run_full_audit(df, inputs)
         if ok:
@@ -268,12 +226,12 @@ def tab_results() -> None:
     c1, c2 = st.columns(2)
     with c1:
         score_card("Data Quality Score", quality["score"], quality["status"],
-                   quality["color"], quality["emoji"])
+                   quality["color"])
         st.plotly_chart(visualizations.score_gauge(quality["score"], "Data Quality"),
                         use_container_width=True)
     with c2:
         score_card("Dashboard Readiness", dashboard["score"], dashboard["status"],
-                   dashboard["color"], dashboard["emoji"])
+                   dashboard["color"])
         st.plotly_chart(visualizations.score_gauge(dashboard["score"], "Dashboard Readiness"),
                         use_container_width=True)
 
@@ -511,7 +469,7 @@ def tab_cleaned() -> None:
 
     base = safe_file_name(st.session_state.inputs.get("dataset_name") or "audit")
     st.download_button(
-        "⬇ Download Cleaned CSV",
+        "Download Cleaned CSV",
         data=cleaned.to_csv(index=False),
         file_name=f"{base}_cleaned_{timestamp_slug()}.csv",
         mime="text/csv",
@@ -528,7 +486,7 @@ def tab_saved() -> None:
 
     col1, col2 = st.columns([1, 1])
     with col1:
-        if st.button("💾 Save current audit to history", use_container_width=True,
+        if st.button(" Save current audit to history", use_container_width=True,
                      disabled=not audit):
             if audit:
                 db.save_audit(
@@ -537,7 +495,7 @@ def tab_saved() -> None:
                 )
                 st.success("Audit saved to local history.")
     with col2:
-        if st.button("🗑 Clear all history", use_container_width=True):
+        if st.button("Clear all history", use_container_width=True):
             db.delete_all()
             st.warning("Audit history cleared.")
 
@@ -591,7 +549,7 @@ def tab_exports() -> None:
 
     md_report = exporters.build_markdown_report(inputs, audit, quality, dashboard, package)
     st.download_button(
-        "⬇ Export Markdown Audit Report",
+        "Export Markdown Audit Report",
         data=md_report,
         file_name=f"{base}_report_{stamp}.md",
         mime="text/markdown",
@@ -600,7 +558,7 @@ def tab_exports() -> None:
 
     cleaned = exporters.build_cleaned_dataframe(df, audit)
     st.download_button(
-        "⬇ Export Cleaned CSV",
+        "Export Cleaned CSV",
         data=cleaned.to_csv(index=False),
         file_name=f"{base}_cleaned_{stamp}.csv",
         mime="text/csv",
@@ -609,7 +567,7 @@ def tab_exports() -> None:
 
     profile_df = exporters.build_column_profile_df(audit)
     st.download_button(
-        "⬇ Export Column Profile CSV",
+        "Export Column Profile CSV",
         data=profile_df.to_csv(index=False),
         file_name=f"{base}_column_profile_{stamp}.csv",
         mime="text/csv",
@@ -618,7 +576,7 @@ def tab_exports() -> None:
 
     issue_df = exporters.build_issue_log_df(audit)
     st.download_button(
-        "⬇ Export Issue Log CSV",
+        "Export Issue Log CSV",
         data=issue_df.to_csv(index=False),
         file_name=f"{base}_issue_log_{stamp}.csv",
         mime="text/csv",
@@ -634,7 +592,7 @@ def tab_exports() -> None:
 # ---------------------------------------------------------------------------
 def main() -> None:
     inputs = render_sidebar()
-    st.title(f"🧹 {config.APP_NAME}")
+    st.title(config.APP_NAME)
     st.caption(config.APP_TAGLINE)
 
     tabs = st.tabs([

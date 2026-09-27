@@ -1,9 +1,4 @@
-"""Generate a generic, messy sample dataset for demos and testing.
 
-All data here is synthetic and generic. It contains no real company,
-person, or proprietary information. The dataset intentionally includes common
-data quality problems so the auditor has something meaningful to detect.
-"""
 
 from __future__ import annotations
 

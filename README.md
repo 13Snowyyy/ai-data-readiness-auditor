@@ -6,8 +6,7 @@
 [![pandas](https://img.shields.io/badge/pandas-Data-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![Plotly](https://img.shields.io/badge/Plotly-Charts-3F4F75?logo=plotly&logoColor=white)](https://plotly.com/python/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Local-first](https://img.shields.io/badge/Local--first-No%20API%20key%20required-success)](#10-how-template-engine-mode-works)
-[![Optional AI](https://img.shields.io/badge/Optional-LLM%20Enhanced%20Mode-8A2BE2)](#11-how-llm-enhanced-mode-works)
+[![Local-first](https://img.shields.io/badge/Local--first-No%20API%20key%20required-success)]
 
 > **Clean the data before trusting the dashboard.**
 
@@ -104,9 +103,7 @@ readiness *before* building saves rework and protects decision quality.
 - Interactive **Plotly** charts and score gauges.
 - Export a **Markdown** report (20 sections), a **cleaned CSV**, a **column profile CSV**, and an **issue log CSV**.
 - **Template Engine Mode** (default, offline) plus an optional, fully implemented
-  **LLM Enhanced Mode** (OpenAI, Groq, OpenRouter, Gemini, Azure OpenAI, Claude)
-  that adds AI-written narratives when an API key is provided and falls back
-  automatically when it isn't.
+
 
 ## 5. Technology Stack
 
@@ -117,7 +114,7 @@ readiness *before* building saves rework and protects decision quality.
 - **openpyxl** (Excel support)
 - **Plotly Express** (charts)
 - **GitHub Copilot** + **Claude Opus 4.8** (AI-assisted development)
-- **Template Engine Mode** + **LLM Enhanced Mode** architecture
+- **Template Engine Mode**  architecture
 
 ## 6. Folder Structure
 
@@ -129,7 +126,6 @@ ai-data-readiness-auditor/
 ├── LICENSE                    # MIT License
 ├── run_app.bat                # One-click Windows launcher
 ├── run_app.sh                 # One-click macOS/Linux launcher
-├── .env.example               # Copy to .env to enable optional LLM mode
 ├── .gitignore
 ├── data/
 │   └── data_readiness.db      # SQLite history (created on first run)
@@ -152,7 +148,7 @@ ai-data-readiness-auditor/
         ├── __init__.py
         ├── base_provider.py   # Provider interface
         ├── template_provider.py
-        └── llm_provider.py    # LLM Enhanced Mode (real API calls)
+       
 ```
 
 ## 7. Setup Instructions
@@ -206,83 +202,7 @@ chart gallery, recommended dashboard pages, cleanup recommendations, suggested
 questions/next steps, and a final summary) using deterministic local templates in
 `src/template_engine.py`. No API key, account, or internet connection is required.
 
-## 11. How LLM Enhanced Mode Works
-
-The app is architected around a **provider interface** (`src/providers/`).
-**LLM Enhanced Mode** is fully implemented in `src/providers/llm_provider.py` and:
-
-- Is selected entirely by **environment variables** — no keys are ever hardcoded.
-- Reads keys from `os.environ` only and never logs or stores their values.
-- Uses only the Python **standard library** (`urllib`) for the API call, so it adds
-  **no extra dependencies**.
-- Builds a structured, fact-grounded prompt from the audit results and asks the
-  model for JSON, then overlays the AI narrative on top of the deterministic,
-  field-derived sections (data dictionary, chart gallery, dashboard pages) so
-  those stay grounded.
-- **Falls back to Template Engine Mode automatically** — cleanly when no key is
-  configured, and with a clear on-screen reason if a call fails (bad key, network
-  error, non-JSON response, etc.). The app never crashes and never requires a key.
-
-Supported providers (choose one via `LLM_PROVIDER`):
-
-| Provider | `LLM_PROVIDER` | API key variable | Default model |
-| --- | --- | --- | --- |
-| OpenAI | `openai` | `OPENAI_API_KEY` | `gpt-4o-mini` |
-| Groq | `groq` | `GROQ_API_KEY` | `llama-3.3-70b-versatile` |
-| OpenRouter | `openrouter` | `OPENROUTER_API_KEY` | `openai/gpt-4o-mini` |
-| Google Gemini | `gemini` | `GEMINI_API_KEY` | `gemini-2.0-flash` |
-| Azure OpenAI | `azure_openai` | `AZURE_OPENAI_API_KEY` | (deployment name) |
-| Anthropic Claude | `claude` | `ANTHROPIC_API_KEY` | `claude-3-5-sonnet-latest` |
-
-Optional overrides (all optional; none required to run):
-
-```
-LLM_PROVIDER            # which provider to use (e.g. groq)
-LLM_MODEL               # override the default model
-LLM_API_KEY             # generic key (defaults provider to openai if set alone)
-LLM_BASE_URL            # override the OpenAI-compatible base URL
-AZURE_OPENAI_ENDPOINT   # required for Azure OpenAI
-AZURE_OPENAI_DEPLOYMENT # Azure deployment name (or set via LLM_MODEL)
-AZURE_OPENAI_API_VERSION# defaults to 2024-06-01
-```
-
-### Where to put your API key (easiest way — a `.env` file)
-
-You do **not** need to touch any code. The app automatically reads a file named
-`.env` in the project folder.
-
-1. In the project folder you'll see a file called **`.env.example`**.
-   Make a **copy** of it and rename the copy to **`.env`** (just `.env`, with the
-   dot and nothing after it).
-2. Open your new `.env` file. It lists six providers, each commented out.
-3. Pick **one** provider, delete the `#` in front of its two lines, and paste
-   your real key after the `=` sign. For example, for Groq:
-   ```
-   LLM_PROVIDER=groq
-   GROQ_API_KEY=your-real-key-here
-   ```
-4. **Save** the file and start the app. In the sidebar, choose
-   **LLM Enhanced Mode**.
-
-Your `.env` file is automatically ignored by git, so your key never gets
-committed or shared. If you leave the key out, the app simply keeps using the
-offline **Template Engine Mode** — nothing breaks.
-
-### Alternative: set it just for the current terminal session
-
-If you'd rather not create a file, set the variables in your terminal before
-launching (they disappear when you close the terminal):
-
-```powershell
-$env:LLM_PROVIDER = "groq"
-$env:GROQ_API_KEY = "your-key-here"
-python -m streamlit run app.py
-```
-
-Select **LLM Enhanced Mode** in the sidebar. If the key is missing or the call
-fails, the app quietly uses Template Engine Mode and tells you why.
-
-## 12. Example Use Case
+## 11. Example Use Case
 
 An operations analyst inherits a messy issue-tracker export. Before building a
 status dashboard, they load it into the auditor. The tool reports a **Data
@@ -292,14 +212,14 @@ duplicate rows, inconsistent `Region` capitalization, and unparseable dates.
 The analyst exports the cleaned CSV and the Markdown report, fixes the flagged
 issues, re-audits to confirm improvement, and only then builds the dashboard.
 
-## 13. Portfolio Value
+## 12. Portfolio Value
 
 This project demonstrates beginner-to-intermediate **data analytics**,
 **data quality thinking**, **BI readiness**, **AI-assisted development**, and
 clean, modular software design — a practical, real-world tool rather than a toy
 example.
 
-## 14. Possible Future Enhancements
+## 13. Possible Future Enhancements
 
 - Provider-native SDKs and streaming responses for LLM Enhanced Mode
 - **Great Expectations** integration
@@ -313,7 +233,7 @@ example.
 - Scheduled recurring audits
 - Cloud deployment
 
-## 15. Resume Bullets
+## 14. Resume Bullets
 
 - Built a local-first **AI Data Readiness Auditor** (Python, Streamlit, pandas,
   numpy, SQLite, openpyxl, Plotly) that profiles CSV/Excel datasets and detects
@@ -335,23 +255,5 @@ example.
   20-section Markdown and CSV exports.
 - Architected the app around a pluggable **provider interface** with an offline
   **Template Engine Mode** (no API key required) and an optional, fully implemented
-  **LLM Enhanced Mode** supporting six providers (OpenAI, Groq, OpenRouter, Gemini,
-  Azure OpenAI, Claude) via environment variables, with automatic, graceful
-  fallback — demonstrating clean, modular, extensible software design.
-
----
-
-## Author
-
-**Gustavo Angulo**
-GitHub: [@Sviless](https://github.com/Sviless)
-
-Built as a data analytics / business intelligence portfolio project.
-
-## License
-
-Released under the **MIT License** — see [LICENSE](LICENSE) for details.
-
----
 
 _Built with Python, Streamlit, pandas, numpy, SQLite, openpyxl, and Plotly Express._
